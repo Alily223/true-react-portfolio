@@ -1,0 +1,18 @@
+.Home-Page-Wrapper{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 84px);
+    background-color: #2b1215;
+    
+
+    .Logo-wrapper{
+        margin: 0px;
+        padding: 0px;
+        align-self: center;
+        .Logo-img{
+            height: 100px;
+            width: 100px;
+            background-size:cover;
+        }
+    }
+}

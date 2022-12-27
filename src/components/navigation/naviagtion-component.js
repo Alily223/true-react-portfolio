@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
+import LogoImg from "../../../static/assets/images/Logos/Logo-Two.png";
+import PersonIconImg from "../../../static/assets/images/Logos/PersonIcon.png";
+
 
 const NavigationComponent = (props) => {
   return (
@@ -9,11 +12,23 @@ const NavigationComponent = (props) => {
         <div className="left-side">
             <div className="nav-link-wrapper">
                 <NavLink exact to="/" activeClassName="nav-link-active">
-                    Home
+                    <div className='Logo-wrapper'>
+                        <div 
+                            className="Logo-img"
+                            style = {{ backgroundImage:`url(${LogoImg})`}}
+                        />
+                        <p className="Title-Wrapper">Home</p>
+                    </div>
                 </NavLink>
 
                 <NavLink to="/sign-up" activeClassName="nav-link-active">
-                    Sign-up
+                    <div className='Person-Sign-Up-wrapper'>
+                        <div 
+                            className="Person-Icon"
+                            style = {{ backgroundImage:`url(${PersonIconImg})`}}
+                        />
+                        <p className="Title-Wrapper">Sign-up</p>
+                    </div>
                 </NavLink>
             </div>
         </div>

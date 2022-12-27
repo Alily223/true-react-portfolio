@@ -4,3 +4,8 @@ html,body {
     margin: 0px;
     font-family: 'Nanum Gothic', sans-serif;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}

@@ -3,16 +3,77 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
-    width: 100%;
+    background-color: $Bar-Wrapper;
+    color: $text-color;
     
     .left-side,.middle,.right-side {
         padding: 5px;
         
-        a {
-            text-decoration: none;
-            margin-left: 5px;
-            margin-right: 5px;
+        .nav-link-wrapper{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            a {
+                text-decoration: none;
+                margin-left: 5px;
+                margin-right: 5px;
+                color: $text-color;
+                border: 1px transparent;
+                background-color: $border-background;
+                border-radius: 5px 0px;
+                padding:3px;
+                transition: 0.5s ease-in-out;
+    
+                &:hover {
+                    color:$hover-text-color;
+                    background-color: $hover-border-background;
+                    border-radius: 5px;
+                }
+            }
+
+            .Logo-wrapper{
+                margin: 0px;
+                padding: 0px;
+                margin: 0%;
+                .Logo-img{
+                    margin: 0%;
+                    height: 40px;
+                    width: 40px;
+                    background-size:cover;
+                }
+                .Title-Wrapper{
+                    font-size: smaller;
+                    margin: 0%;
+                    text-align: center;
+                }
+            }
+
+            .Person-Sign-Up-wrapper{
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+                padding: 0px;
+                align-self: center;
+                justify-content: center;
+                align-items: center;
+                .Person-Icon{
+                    margin: 0px;
+                    height: 40px;
+                    width: 40px;
+                    background-size:cover;
+                }
+                .Title-Wrapper{
+                    font-size: smaller;
+                    margin: 0%;
+                    text-align: center;
+                }
+            }
+    
         }
+        
+
+        
     }
+
+    
 }
