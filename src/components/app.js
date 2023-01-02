@@ -5,8 +5,10 @@ import NavigationComponent from './navigation/naviagtion-component';
 import Home from './pages/Home';
 import SignUp from "./pages/Sign-up";
 import Projects from "./pages/Projects";
-import CertificatesTestimonals from "./pages/Certificates-Testimonals";
+import Certificates from "./pages/certificates";
+import testimonials from "./pages/testimonials";
 import UnfinishedProjects from "./pages/Unfinished-Projects";
+import blog from "./pages/blog";
 
 export default class App extends Component {
   constructor() {
@@ -29,9 +31,13 @@ export default class App extends Component {
 
               <Route path="/projects" component={Projects} />
 
-              <Route path="/certificates-testimonals" component={CertificatesTestimonals} />
+              <Route path="/certificates" component={Certificates} />
+
+              <Route path="/testimonials" component={testimonials} />
 
               <Route path="/unfinished-projects" component={UnfinishedProjects} />
+
+              <Route path="/blog" component={blog} />
               
             </Switch>
 

@@ -39,12 +39,20 @@ const NavigationComponent = (props) => {
                     Projects
                 </NavLink>
 
-                <NavLink to="/certificates-testimonals" activeClassName="nav-link-active">
-                    Certificates & Testimonals
+                <NavLink to="/certificates" activeClassName="nav-link-active">
+                    Certificates
+                </NavLink>
+
+                <NavLink to="/testimonials" activeClassName="nav-link-active">
+                    Testimonials
                 </NavLink>
 
                 <NavLink to="/unfinished-projects" activeClassName="nav-link-active">
                     Unfinished-projects
+                </NavLink>
+
+                <NavLink to="/blog" activeClassName="nav-link-active">
+                    Blog
                 </NavLink>
             </div>
         </div>
