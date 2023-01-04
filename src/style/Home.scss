@@ -1,8 +1,10 @@
 .Home-Page-Wrapper{
     display: flex;
     flex-direction: column;
-    height: calc(200vh - 84px);
+    height: calc(100vh - 84px);
     background-color: #2b1215;
+    position: relative;
+    overflow-y: scroll;
     
 
     .About-me-wrapper{
@@ -12,7 +14,8 @@
         justify-content: center;
         align-self: center;
         width: calc(100vw - 150px);
-        border: 1px solid black;
+        border: 1px solid $item-background-color;
+        border-radius: 5px;
         background-color: $border-background;
     }
 
@@ -40,14 +43,16 @@
 
     .More-Facts-About-Me-Grid-Wrapper{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 50% 17% 33%;
         justify-content: center;
         align-items: center;
         align-self: center;
         width: calc(100vw - 150px);
+        margin: 5px;
 
         .Skills-Wrapper{
             @include background-for-item();
+            margin: 5px;
         }
 
         .Skill-bar-confidence-wrapper{
@@ -62,7 +67,7 @@
             flex-direction: row;
             align-content: center;
             justify-content: center;
-            width: 500px;
+            width: 100%;
             height: 50px;
             border: 1px solid black;
         }
@@ -165,10 +170,37 @@
 
         .Hobbies-Wrapper{
             @include background-for-item();
+            margin: 5px;
+        }
+
+        .Hobbies-list-wrapper{
+            height: 314px;
+            .List-item{
+                text-align: start;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                
+            }
         }
 
         .Currently-Learning-Wrapper{
             @include background-for-item();
+            margin: 5px;
+        }
+
+        .Currently-Learning-Wrapper-List{
+            height: 314px;
+        }
+
+        .Currently-learning-item{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .Stage-Of-Learning{
+            position: relative;
+            top: 2px;
         }
     }
 }

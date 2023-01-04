@@ -3,6 +3,21 @@
 html,body {
     margin: 0px;
     font-family: 'Nanum Gothic', sans-serif;
+
+    ::-webkit-scrollbar{
+        background-color: $Bar-Wrapper;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        border: 1px solid transparent;
+        border-radius: 20px;
+        background-color: $text-color;
+        transition: 1s ease-in-out;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: $hover-border-background;
+    }
 }
 
 .container {

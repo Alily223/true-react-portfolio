@@ -5,9 +5,11 @@
     align-items: center;
     background-color: $Bar-Wrapper;
     color: $text-color;
+    position: relative;
+    height: 84px;
     
     .left-side,.middle,.right-side {
-        padding: 5px;
+        padding: 10px;
         
         .nav-link-wrapper{
             display: flex;
@@ -70,8 +72,6 @@
             }
     
         }
-        
-
         
     }
 
