@@ -1,6 +1,7 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 @import "./base.scss";
-@import "./NavigationBar.scss";
-@import "./Home.scss";
-@import "./Dashboard.scss";
+@import "./Navigation-Bar-Styles/NavigationBar.scss";
+@import "./Home-Page-Styles/Home.scss";
+@import "./Home-Page-Styles/Dashboard.scss";
+@import "./MediaFixes/Media.scss";

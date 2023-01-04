@@ -1,4 +1,7 @@
 import React from 'react';
+import Twittericon from '../../../static/assets/images/Logos/Twittericonsmaller.png';
+import Linkedinicon from '../../../static/assets/images/Logos/Linked-in.png';
+import Instagramicon from '../../../static/assets/images/Logos/Instagram.png';
  
 export default function(){
  
@@ -83,8 +86,40 @@ export default function(){
                     <h2>Social Media Links</h2>
                 </div>
 
-                <div className ="Dashboard-Object-Material">
-                    <p>4</p>
+                <div className="Social-link-grid">
+
+                    <div className ="Dashboard-Object-Material item-a">
+                        <a href="#">
+                            <div 
+                                className="Dashboard-Object-Material-img"
+                                style = {{ backgroundImage:`url(${Twittericon})`}}
+                            />
+                            <p>Twitter</p>
+                        </a>
+                    </div>
+
+                    <div className ="Dashboard-Object-Material item-b">
+                        <a href="https://www.linkedin.com/in/austin-lilygren-7a2257141/">
+                            <div 
+                                className="Dashboard-Object-Material-img"
+                                style = {{ backgroundImage:`url(${Linkedinicon})`}}
+                            />
+                            <p>Linked-In</p>
+                        </a>
+                    </div>
+
+                    <div className ="Dashboard-Object-Material item-c">
+                        
+                        <a href="#">
+                            <div 
+                                className="Dashboard-Object-Material-img"
+                                style = {{ backgroundImage:`url(${Instagramicon})`}}
+                            />
+                            <p>Instagram</p>
+                        </a>
+
+                    </div>
+
                 </div>
             </div>
         </div>

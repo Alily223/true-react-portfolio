@@ -1,0 +1,314 @@
+@media (max-width: 600px){
+    .navigation-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $Bar-Wrapper;
+        color: $text-color;
+        position: relative;
+        height: 84px;
+        overflow-y: scroll;
+
+        .middle{
+            display: none;
+        }
+    }
+
+    .Home-Page-Wrapper{
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 84px);
+        background-color: #2b1215;
+        position: relative;
+        overflow-y: scroll;
+
+        .About-me-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            width: calc(100vw - 84px);
+            border: 1px solid $item-background-color;
+            border-radius: 5px;
+            background-color: $border-background;
+        }
+    
+        .Info-text-mission-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+            text-align: center;
+            width: 50%;
+            margin: 25px;
+            color: $text-color;
+        }
+    
+        .Logo-wrapper{
+            margin: 0px;
+            padding: 0px;
+            align-self: center;
+            .Logo-img{
+                height: 100px;
+                width: 100px;
+                background-size:cover;
+            }
+        }
+
+        .More-Facts-About-Me-Grid-Wrapper{
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            width: calc(100vw - 150px);
+            margin: 5px;
+    
+            .Skills-Wrapper{
+                @include background-for-item();
+                margin: 5px;
+            }
+    
+            .Skill-bar-confidence-wrapper{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .Skill-Item-wrapper{
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                width: 100%;
+                height: 50px;
+                border: 1px solid black;
+            }
+    
+            .Skill-Name{
+                border: 1px solid transparent;
+                background-color: #2b1215;
+                width: 20%;
+                height: 50px;
+                margin: 0%;
+                padding: 0%;
+            }
+    
+            .Skill-Bar{
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                background-color: $Bar-Wrapper;
+                width: 100%;
+                padding: 0%;
+                margin: 0%;
+            }
+    
+            .Skill-Percent-HTML{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 95%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-CSS{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 95%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-Python{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 75%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-Flask{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 55%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-MongoDB{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 65%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-UML{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 90%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-UIUX{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 100%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-Javascript{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 85%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-GIT{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 85%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-ReactJS{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 75%;
+                height: 100%;
+            }
+    
+            .Skill-Percent-SQL{
+                text-align: start;
+                background-color: $hover-border-background;
+                width: 90%;
+                height: 100%;
+            }
+    
+            .Hobbies-Wrapper{
+                @include background-for-item();
+                margin: 5px;
+            }
+    
+            .Hobbies-list-wrapper{
+                height: 314px;
+                .List-item{
+                    text-align: start;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    
+                }
+            }
+    
+            .Currently-Learning-Wrapper{
+                @include background-for-item();
+                margin: 5px;
+            }
+    
+            .Currently-Learning-Wrapper-List{
+                height: 314px;
+            }
+    
+            .Currently-learning-item{
+                display:flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+    
+            .Stage-Of-Learning{
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        .DashBoard-Grid-Wrapper{
+            display:grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            align-self: center;
+            width: calc(100vw - 150px);
+        
+            .Object-Wrapper{
+                display: flex;
+                flex-direction: column;
+                height: 200px;
+                margin: 5px;
+                text-align: center;
+                justify-content: center;
+                align-self: center;
+                color: $text-color;
+                border: 1px solid $item-background-color;
+                border-radius: 5px;
+                background-color: $border-background;
+            }
+        
+            .Dashboard-Object-Material {
+                display: flex;
+                position: relative;
+                justify-content: center;
+                font-size: 2em;
+                border: 1px solid $border-background;
+                background-color: $item-background-color;
+                border-radius: 200px;
+                height: 100px;
+                width: 100px;
+                text-align: center;
+                align-self: center;
+            }
+        
+            .Dashboard-Object-Material-Countby{
+                position: relative;
+                align-self: center;
+                top: -15px;
+            }
+        
+            .Social-link-grid{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-items: center;
+                font-size: 0.5em;
+        
+                a{
+                    text-decoration: none;
+                    color: $text-color;
+                    text-align: center;
+                    justify-items: center;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+        
+                .item-a,.item-b,.item-c{
+                    border: none;
+                    background-color: transparent;
+                    height: auto;
+                    width: auto;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0px;
+                    padding: 0px;
+                    justify-content: center;
+                    text-align: center;
+                    align-content: center;
+                    align-items: center;
+                }
+        
+                .item-c{
+                    align-self: auto;
+                }
+        
+                .Dashboard-Object-Material-img{
+                    height: 50px;
+                    width: 50px;
+                    background-size: contain;
+                    margin: 0px;
+                    padding: 0px;
+                }
+            }
+        }
+
+    }
+
+    
+}
