@@ -70,6 +70,7 @@
             width: 100%;
             height: 50px;
             border: 1px solid black;
+            border-radius: 20px;
         }
 
         .Skill-Name{
@@ -79,6 +80,7 @@
             height: 50px;
             margin: 0%;
             padding: 0%;
+            border-radius: 20px 0px 0px 20px;
         }
 
         .Skill-Bar{
@@ -89,6 +91,7 @@
             width: 100%;
             padding: 0%;
             margin: 0%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-HTML{
@@ -96,6 +99,7 @@
             background-color: $hover-border-background;
             width: 95%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-CSS{
@@ -103,6 +107,7 @@
             background-color: $hover-border-background;
             width: 95%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-Python{
@@ -110,6 +115,7 @@
             background-color: $hover-border-background;
             width: 75%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-Flask{
@@ -117,6 +123,7 @@
             background-color: $hover-border-background;
             width: 55%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-MongoDB{
@@ -124,6 +131,7 @@
             background-color: $hover-border-background;
             width: 65%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-UML{
@@ -131,6 +139,7 @@
             background-color: $hover-border-background;
             width: 90%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-UIUX{
@@ -138,6 +147,7 @@
             background-color: $hover-border-background;
             width: 100%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-Javascript{
@@ -145,6 +155,7 @@
             background-color: $hover-border-background;
             width: 85%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-GIT{
@@ -152,6 +163,7 @@
             background-color: $hover-border-background;
             width: 85%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-ReactJS{
@@ -159,6 +171,7 @@
             background-color: $hover-border-background;
             width: 75%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Skill-Percent-SQL{
@@ -166,6 +179,7 @@
             background-color: $hover-border-background;
             width: 90%;
             height: 100%;
+            border-radius: 0px 20px 20px 0px;
         }
 
         .Hobbies-Wrapper{
