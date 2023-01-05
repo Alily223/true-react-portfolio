@@ -9,6 +9,7 @@ import Certificates from "./pages/certificates";
 import testimonials from "./pages/testimonials";
 import UnfinishedProjects from "./pages/Unfinished-Projects";
 import blog from "./pages/blog";
+import hackerranks from "./pages/hackerranks";
 
 export default class App extends Component {
   constructor() {
@@ -38,6 +39,8 @@ export default class App extends Component {
               <Route path="/unfinished-projects" component={UnfinishedProjects} />
 
               <Route path="/blog" component={blog} />
+
+              <Route path="/hackeranks" component={hackerranks} />
               
             </Switch>
 

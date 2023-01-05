@@ -70,6 +70,24 @@
                     text-align: center;
                 }
             }
+
+            .Sign-out-wrapper{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .Power-Icon{
+                height: 50px;
+                width: 50px;
+                background-size: contain;
+                transition: 1s ease-in-out;
+                cursor: pointer;
+
+                &:hover{
+                    filter:contrast(130%);
+                }
+            }
     
         }
         

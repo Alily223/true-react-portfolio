@@ -2,11 +2,13 @@ import React from 'react';
 import Twittericon from '../../../static/assets/images/Logos/Twittericonsmaller.png';
 import Linkedinicon from '../../../static/assets/images/Logos/Linked-in.png';
 import Instagramicon from '../../../static/assets/images/Logos/Instagram.png';
+import { NavLink } from "react-router-dom";
  
 export default function(){
  
     return(
         <div className='DashBoard-Grid-Wrapper'>
+
             <div className="Object-Wrapper">
                 <div className ="Dashboard-Object-Name">
                     <h2>Projects</h2>
@@ -15,8 +17,12 @@ export default function(){
                 <div className ="Dashboard-Object-Material">
                     <p>4</p>
                 </div>
-            </div>
 
+                <div className ="Dashboard-Object-Link">
+                    <NavLink to="/projects" activeClassName="nav-link-active">Go To Page</NavLink>
+                </div>
+            </div>
+            
             <div className="Object-Wrapper">
                 <div className ="Dashboard-Object-Name">
                     <h2>Certificates</h2>
@@ -24,6 +30,10 @@ export default function(){
 
                 <div className ="Dashboard-Object-Material">
                     <p>1</p>
+                </div>
+
+                <div className ="Dashboard-Object-Link">
+                    <NavLink to="/certificates" activeClassName="nav-link-active">Go To Page</NavLink>
                 </div>
             </div>
 
@@ -35,6 +45,10 @@ export default function(){
                 <div className ="Dashboard-Object-Material">
                     <p>0</p>
                 </div>
+
+                <div className ="Dashboard-Object-Link">
+                    <NavLink to="/testimonials" activeClassName="nav-link-active">Go To Page</NavLink>
+                </div>
             </div>
 
             <div className="Object-Wrapper">
@@ -45,6 +59,10 @@ export default function(){
                 <div className ="Dashboard-Object-Material">
                     <p>27</p>
                 </div>
+
+                <div className ="Dashboard-Object-Link">
+                    <NavLink to="/hackeranks" activeClassName="nav-link-active">Go To Page</NavLink>
+                </div>
             </div>
 
             <div className="Object-Wrapper">
@@ -54,6 +72,10 @@ export default function(){
 
                 <div className ="Dashboard-Object-Material">
                     <p>1</p>
+                </div>
+
+                <div className ="Dashboard-Object-Link">
+                    <NavLink to="/unfinished-projects" activeClassName="nav-link-active">Go To Page</NavLink>
                 </div>
             </div>
 
@@ -79,6 +101,10 @@ export default function(){
                 <div className ="Dashboard-Object-Material">
                     <p>0</p>
                 </div>
+
+                <div className ="Dashboard-Object-Link">
+                    <NavLink to="/blog" activeClassName="nav-link-active">Go To Page</NavLink>
+                </div>
             </div>
 
             <div className="Object-Wrapper">
@@ -90,20 +116,24 @@ export default function(){
 
                     <div className ="Dashboard-Object-Material item-a">
                         <a href="#">
-                            <div 
-                                className="Dashboard-Object-Material-img"
-                                style = {{ backgroundImage:`url(${Twittericon})`}}
-                            />
+                            <div className="image-wrapper">
+                                <div 
+                                    className="Dashboard-Object-Material-img"
+                                    style = {{ backgroundImage:`url(${Twittericon})`}}
+                                />
+                                </div>
                             <p>Twitter</p>
                         </a>
                     </div>
 
                     <div className ="Dashboard-Object-Material item-b">
                         <a href="https://www.linkedin.com/in/austin-lilygren-7a2257141/">
-                            <div 
-                                className="Dashboard-Object-Material-img"
-                                style = {{ backgroundImage:`url(${Linkedinicon})`}}
-                            />
+                            <div className="image-wrapper">
+                                <div 
+                                    className="Dashboard-Object-Material-img"
+                                    style = {{ backgroundImage:`url(${Linkedinicon})`}}
+                                />
+                            </div>
                             <p>Linked-In</p>
                         </a>
                     </div>
@@ -111,10 +141,12 @@ export default function(){
                     <div className ="Dashboard-Object-Material item-c">
                         
                         <a href="#">
-                            <div 
-                                className="Dashboard-Object-Material-img"
-                                style = {{ backgroundImage:`url(${Instagramicon})`}}
-                            />
+                            <div className="image-wrapper">
+                                <div 
+                                    className="Dashboard-Object-Material-img"
+                                    style = {{ backgroundImage:`url(${Instagramicon})`}}
+                                />
+                            </div>
                             <p>Instagram</p>
                         </a>
 

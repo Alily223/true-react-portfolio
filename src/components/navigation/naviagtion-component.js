@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 import LogoImg from "../../../static/assets/images/Logos/Logo-Two.png";
 import PersonIconImg from "../../../static/assets/images/Logos/PersonIcon.png";
+import PowerIconImg from "../../../static/assets/images/Logos/PowerIcon.png";
 
 
 const NavigationComponent = (props) => {
@@ -33,6 +34,7 @@ const NavigationComponent = (props) => {
             </div>
         </div>
 
+
         <div className="middle">
             <div className="nav-link-wrapper">
                 <NavLink to="/projects" activeClassName="nav-link-active">
@@ -59,7 +61,13 @@ const NavigationComponent = (props) => {
 
         <div className="right-side">
             <div className="nav-link-wrapper">
-                <div>Sign-out</div>
+                <div className="Sign-out-wrapper">
+                    <div 
+                        className="Power-Icon"
+                        style = {{ backgroundImage:`url(${PowerIconImg})`}}
+                    />
+                    <div>Sign-out</div>
+                </div>
             </div>
         </div>
     </div>
