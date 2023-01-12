@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import axios from "axios";
 
 import NavigationComponent from "./navigation/naviagtion-component";
@@ -14,6 +15,8 @@ import hackerranks from "./pages/hackerranks";
 import Contact from "./pages/Contact";
 import CreateTestimonial from "./pages/CreateTestimonial";
 import HireForFreelanceWork from "./pages/HireForFreelanceWork";
+import Manager from "./pages/Manager";
+import UserManager from "./pages/User-manager";
 
 export default class App extends Component {
   constructor(props) {
@@ -21,7 +24,7 @@ export default class App extends Component {
 
     this.state = {
       userLogInStatus: "NOT_LOGGED_IN",
-      adminLogInStatus: "NOT_LOGGED_IN"
+      adminLogInStatus: "NOT_LOGGED_IN",
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -39,21 +42,78 @@ export default class App extends Component {
 
   handleLogin(username, password) {
     axios
-      .post("http://127.0.0.1:5000/users/login", { name: username, password: password })
-      .then(response => {
-        if(response.status === 200) {
-          if(response.data.admin === true) {
-            this.setState({ userLogInStatus: "LOGGED_IN", adminLogInStatus: "LOGGED_IN" });
+      .post("http://127.0.0.1:5000/users/login", {
+        name: username,
+        password: password,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          if (response.data.admin_logged_in === true) {
+            this.setState({
+              userLogInStatus: "LOGGED_IN",
+              adminLogInStatus: "LOGGED_IN",
+            });
           } else {
-            this.setState({ userLogInStatus: "LOGGED_IN", adminLogInStatus: "NOT_LOGGED_IN" });
+            this.setState({
+              userLogInStatus: "LOGGED_IN",
+              adminLogInStatus: "NOT_LOGGED_IN",
+            });
           }
-        } else if(response.status === 401) {
-          this.setState({ userLogInStatus: "NOT_LOGGED_IN", adminLogInStatus: "NOT_LOGGED_IN" });
+        } else if (response.status === 401) {
+          this.setState({
+            userLogInStatus: "NOT_LOGGED_IN",
+            adminLogInStatus: "NOT_LOGGED_IN",
+          });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
+  }
+
+  userAuthorizedPages(){
+    return [
+      <React.Fragment key="navigation">
+        <Route
+          path="/contact"
+          component={Contact}
+          location={this.props.location}
+        />
+
+        <Route
+          path="/create-testimonial"
+          component={CreateTestimonial}
+          location={this.props.location}
+        />
+
+        <Route
+          path="/hire-for-freelance-work"
+          component={HireForFreelanceWork}
+          location={this.props.location}
+        />
+
+        <Route
+          path="/manager"
+          render={(props) =>
+            this.state.adminLogInStatus === "LOGGED_IN" ? (
+              <Manager {...props} />
+            ) : null
+          }
+          location={this.props.location}
+        />
+
+        <Route
+          path="/user-manager"
+          render={(props) =>
+            this.state.adminLogInStatus === "LOGGED_IN" ? (
+              <UserManager {...props} />
+            ) : null
+          }
+          location={this.props.location}
+        />
+
+      </React.Fragment>
+    ]
   }
 
   render() {
@@ -64,7 +124,8 @@ export default class App extends Component {
             <NavigationComponent
               userLogInStatus={this.state.userLogInStatus}
               adminLogInStatus={this.state.adminLogInStatus}
-              setUserLogInStatus={this.setUserLogInStatus} setAdminLogInStatus={this.setAdminLogInStatus}
+              setUserLogInStatus={this.setUserLogInStatus}
+              setAdminLogInStatus={this.setAdminLogInStatus}
             />
 
             <Switch>
@@ -90,19 +151,7 @@ export default class App extends Component {
 
               <Route path="/hackeranks" component={hackerranks} />
 
-              {this.state.userLogInStatus === "LOGGED_IN" ? (
-                <React.Fragment>
-                  <Route path="/contact" component={Contact} />
-                  <Route
-                    path="/create-testimonial"
-                    component={CreateTestimonial}
-                  />
-                  <Route
-                    path="/hire-for-freelance-work"
-                    component={HireForFreelanceWork}
-                  />
-                </React.Fragment>
-              ) : null}
+              {this.state.userLogInStatus === "LOGGED_IN" ? this.userAuthorizedPages(): null}
             </Switch>
           </div>
         </Router>

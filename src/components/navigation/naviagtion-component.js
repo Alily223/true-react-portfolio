@@ -7,10 +7,10 @@ import PersonIconImg from "../../../static/assets/images/Logos/PersonIcon.png";
 import PowerIconImg from "../../../static/assets/images/Logos/PowerIcon.png";
 
 const NavigationComponent = (props) => {
-    const signOut = () => {
-        props.setUserLogInStatus("NOT_LOGGED_IN");
-        props.setAdminLogInStatus("NOT_LOGGED_IN");
-      }
+  const signOut = () => {
+    props.setUserLogInStatus("NOT_LOGGED_IN");
+    props.setAdminLogInStatus("NOT_LOGGED_IN");
+  };
   return (
     <div className="navigation-wrapper">
       <div className="left-side">
@@ -59,6 +59,7 @@ const NavigationComponent = (props) => {
             Blog
           </NavLink>
 
+
           {props.userLogInStatus === "LOGGED_IN" &&
           props.adminLogInStatus === "NOT_LOGGED_IN" ? (
             <React.Fragment>
@@ -78,7 +79,36 @@ const NavigationComponent = (props) => {
                 Hire For Freelance Work
               </NavLink>
             </React.Fragment>
+          ) : props.userLogInStatus === "LOGGED_IN" && props.adminLogInStatus === "LOGGED_IN" ? (
+            <React.Fragment>
+              <NavLink to="/contact" activeClassName="nav-link-active">
+                Contact
+              </NavLink>
+
+              <NavLink
+                to="/create-testimonial"
+                activeClassName="nav-link-active"
+              >
+                Create Testimonial
+              </NavLink>
+
+              <NavLink
+                to="/hire-for-freelance-work"
+                activeClassName="nav-link-active"
+              >
+                Hire For Freelance Work
+              </NavLink>
+
+              <NavLink to="/manager" activeClassName="nav-link-active">
+                Manager
+              </NavLink>
+
+              <NavLink to="/user-manager" activeClassName="nav-link-active">
+                User-Manager
+              </NavLink>
+            </React.Fragment>
           ) : null}
+
         </div>
       </div>
 
