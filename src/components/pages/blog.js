@@ -15,7 +15,7 @@ export default class blog extends Component {
 
   getBlogItems() {
     axios
-      .get("http://localhost:5000/api/data")
+      .get("http://127.0.0.1:5000/users")
       .then((response) => {
         console.log("getting", response.data);
         this.setState({
@@ -33,7 +33,7 @@ export default class blog extends Component {
 
   render() {
     const blogRecords = this.state.blogItems.map(blogItem => {
-      return <div key={blogItem.id}>{blogItem.name} -- {blogItem.password}</div>
+      return <div key={blogItem.id}>{blogItem.username} -- {blogItem.password}</div>
     })
     return (
       <div>

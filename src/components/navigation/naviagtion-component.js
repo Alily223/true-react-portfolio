@@ -6,70 +6,93 @@ import LogoImg from "../../../static/assets/images/Logos/Logo-Two.png";
 import PersonIconImg from "../../../static/assets/images/Logos/PersonIcon.png";
 import PowerIconImg from "../../../static/assets/images/Logos/PowerIcon.png";
 
-
 const NavigationComponent = (props) => {
+    const signOut = () => {
+        props.setUserLogInStatus("NOT_LOGGED_IN");
+        props.setAdminLogInStatus("NOT_LOGGED_IN");
+      }
   return (
     <div className="navigation-wrapper">
-        <div className="left-side">
-            <div className="nav-link-wrapper">
-                <NavLink exact to="/" activeClassName="nav-link-active">
-                    <div className='Logo-wrapper'>
-                        <div 
-                            className="Logo-img"
-                            style = {{ backgroundImage:`url(${LogoImg})`}}
-                        />
-                        <p className="Title-Wrapper">Home</p>
-                    </div>
-                </NavLink>
-
-                <NavLink to="/sign-up" activeClassName="nav-link-active">
-                    <div className='Person-Sign-Up-wrapper'>
-                        <div 
-                            className="Person-Icon"
-                            style = {{ backgroundImage:`url(${PersonIconImg})`}}
-                        />
-                        <p className="Title-Wrapper">Sign-up</p>
-                    </div>
-                </NavLink>
+      <div className="left-side">
+        <div className="nav-link-wrapper">
+          <NavLink exact to="/" activeClassName="nav-link-active">
+            <div className="Logo-wrapper">
+              <div
+                className="Logo-img"
+                style={{ backgroundImage: `url(${LogoImg})` }}
+              />
+              <p className="Title-Wrapper">Home</p>
             </div>
-        </div>
+          </NavLink>
 
-
-        <div className="middle">
-            <div className="nav-link-wrapper">
-                <NavLink to="/projects" activeClassName="nav-link-active">
-                    Projects
-                </NavLink>
-
-                <NavLink to="/certificates" activeClassName="nav-link-active">
-                    Certificates
-                </NavLink>
-
-                <NavLink to="/testimonials" activeClassName="nav-link-active">
-                    Testimonials
-                </NavLink>
-
-                <NavLink to="/unfinished-projects" activeClassName="nav-link-active">
-                    Unfinished-projects
-                </NavLink>
-
-                <NavLink to="/blog" activeClassName="nav-link-active">
-                    Blog
-                </NavLink>
+          <NavLink to="/sign-up" activeClassName="nav-link-active">
+            <div className="Person-Sign-Up-wrapper">
+              <div
+                className="Person-Icon"
+                style={{ backgroundImage: `url(${PersonIconImg})` }}
+              />
+              <p className="Title-Wrapper">Sign-up</p>
             </div>
+          </NavLink>
         </div>
+      </div>
 
-        <div className="right-side">
-            <div className="nav-link-wrapper">
-                <div className="Sign-out-wrapper">
-                    <div 
-                        className="Power-Icon"
-                        style = {{ backgroundImage:`url(${PowerIconImg})`}}
-                    />
-                    <div>Sign-out</div>
-                </div>
-            </div>
+      <div className="middle">
+        <div className="nav-link-wrapper">
+          <NavLink to="/projects" activeClassName="nav-link-active">
+            Projects
+          </NavLink>
+
+          <NavLink to="/certificates" activeClassName="nav-link-active">
+            Certificates
+          </NavLink>
+
+          <NavLink to="/testimonials" activeClassName="nav-link-active">
+            Testimonials
+          </NavLink>
+
+          <NavLink to="/unfinished-projects" activeClassName="nav-link-active">
+            Unfinished-projects
+          </NavLink>
+
+          <NavLink to="/blog" activeClassName="nav-link-active">
+            Blog
+          </NavLink>
+
+          {props.userLogInStatus === "LOGGED_IN" &&
+          props.adminLogInStatus === "NOT_LOGGED_IN" ? (
+            <React.Fragment>
+              <NavLink to="/contact" activeClassName="nav-link-active">
+                Contact
+              </NavLink>
+              <NavLink
+                to="/create-testimonial"
+                activeClassName="nav-link-active"
+              >
+                Create Testimonial
+              </NavLink>
+              <NavLink
+                to="/hire-for-freelance-work"
+                activeClassName="nav-link-active"
+              >
+                Hire For Freelance Work
+              </NavLink>
+            </React.Fragment>
+          ) : null}
         </div>
+      </div>
+
+      <div className="right-side">
+        <div className="nav-link-wrapper">
+          <div className="Sign-out-wrapper" onClick={signOut}>
+            <div
+              className="Power-Icon"
+              style={{ backgroundImage: `url(${PowerIconImg})` }}
+            />
+            <div>Sign-out</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
