@@ -31,7 +31,7 @@ const NavigationComponent = (props) => {
                 className="Person-Icon"
                 style={{ backgroundImage: `url(${PersonIconImg})` }}
               />
-              <p className="Title-Wrapper">Sign-up</p>
+              <p className="Title-Wrapper">Log-In</p>
             </div>
           </NavLink>
         </div>

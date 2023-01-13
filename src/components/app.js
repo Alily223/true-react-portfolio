@@ -25,6 +25,8 @@ export default class App extends Component {
     this.state = {
       userLogInStatus: "NOT_LOGGED_IN",
       adminLogInStatus: "NOT_LOGGED_IN",
+      message: "",
+      username: ""
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -52,17 +54,22 @@ export default class App extends Component {
             this.setState({
               userLogInStatus: "LOGGED_IN",
               adminLogInStatus: "LOGGED_IN",
+              message: "Succesfully Logged In As An Admin",
+              username: username
             });
           } else {
             this.setState({
               userLogInStatus: "LOGGED_IN",
               adminLogInStatus: "NOT_LOGGED_IN",
+              message: "Succesfully Logged In As " + username,
+              username: username
             });
           }
         } else if (response.status === 401) {
           this.setState({
             userLogInStatus: "NOT_LOGGED_IN",
             adminLogInStatus: "NOT_LOGGED_IN",
+            message: "Error password incorrect, try again"
           });
         }
       })
@@ -133,7 +140,7 @@ export default class App extends Component {
 
               <Route
                 path="/sign-up"
-                component={() => <LogInSignUp handleLogin={this.handleLogin} />}
+                component={(props) => <LogInSignUp {...props} handleLogin={this.handleLogin} message={this.state.message}/>}
               />
 
               <Route path="/projects" component={Projects} />

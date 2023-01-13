@@ -8,7 +8,7 @@ class LogInSignUp extends Component {
     this.state = {
       name: "",
       password: "",
-      message: ""
+      formLoad: "Log_In"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,10 +29,11 @@ class LogInSignUp extends Component {
     this.props.handleLogin(name, password);
   }
 
-  render() {
-    return (
-      <div className="page-wrapper">
-        <div className="Sign-up-Wrapper">
+  LogInForm() {
+    return [
+      <React.Fragment key="Log-In">
+        <div className="Log-In-Wrapper">
+          <h1>Log-In Here</h1>
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="name">Username:</label>
             <input
@@ -54,7 +55,60 @@ class LogInSignUp extends Component {
             <br />
             <button type="submit">Log In</button>
           </form>
+          
+          <div className="Entrance-Message">
+            <h3>{this.props.message}</h3>
+          </div>
+          
+          <button onClick={() => this.setState({ formLoad: "Sign-up" })}>Sign-up</button>
         </div>
+      </React.Fragment>
+    ]
+  }
+
+  SignUpForm() {
+    return [
+      <React.Fragment key="Log-In">
+        <div className="Log-In-Wrapper">
+          <h1>Sign-Up Here</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="name">Username:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <br />
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+            <br />
+            <button type="submit">Log In</button>
+          </form>
+          
+          <div className="Entrance-Message">
+            <h3>{this.props.message}</h3>
+          </div>
+          
+          <button onClick={() => this.setState({ formLoad: "Log-In" })}>Log-In</button>
+        </div>
+      </React.Fragment>
+    ]
+  }
+
+  render() {
+    return (
+      <div className="page-wrapper">
+        
+        {this.state.formLoad === "Log_In" ? this.LogInForm(): this.state.formLoad === "Sign-up" ? this.SignUpForm(): this.LogInForm()}
+
       </div>
     );
   }
