@@ -1,0 +1,693 @@
+@import url(https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap);html, body {
+  margin: 0px;
+  font-family: "Nanum Gothic", sans-serif;
+}
+html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+  background-color: #1d0c0e;
+}
+html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: #C97E86;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+html ::-webkit-scrollbar-thumb:hover, body ::-webkit-scrollbar-thumb:hover {
+  background-color: #81363f;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.navigation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d0c0e;
+  color: #C97E86;
+  position: relative;
+  height: 84px;
+}
+.navigation-wrapper .left-side, .navigation-wrapper .middle, .navigation-wrapper .right-side {
+  padding: 10px;
+}
+.navigation-wrapper .left-side .nav-link-wrapper, .navigation-wrapper .middle .nav-link-wrapper, .navigation-wrapper .right-side .nav-link-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.navigation-wrapper .left-side .nav-link-wrapper a, .navigation-wrapper .middle .nav-link-wrapper a, .navigation-wrapper .right-side .nav-link-wrapper a {
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #C97E86;
+  border: 1px transparent;
+  background-color: #56242A;
+  border-radius: 5px 0px;
+  padding: 3px;
+  transition: 0.5s ease-in-out;
+}
+.navigation-wrapper .left-side .nav-link-wrapper a:hover, .navigation-wrapper .middle .nav-link-wrapper a:hover, .navigation-wrapper .right-side .nav-link-wrapper a:hover {
+  color: #BD616c;
+  background-color: #81363f;
+  border-radius: 5px;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Logo-wrapper, .navigation-wrapper .middle .nav-link-wrapper .Logo-wrapper, .navigation-wrapper .right-side .nav-link-wrapper .Logo-wrapper {
+  margin: 0px;
+  padding: 0px;
+  margin: 0%;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Logo-wrapper .Logo-img, .navigation-wrapper .middle .nav-link-wrapper .Logo-wrapper .Logo-img, .navigation-wrapper .right-side .nav-link-wrapper .Logo-wrapper .Logo-img {
+  margin: 0%;
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Logo-wrapper .Title-Wrapper, .navigation-wrapper .middle .nav-link-wrapper .Logo-wrapper .Title-Wrapper, .navigation-wrapper .right-side .nav-link-wrapper .Logo-wrapper .Title-Wrapper {
+  font-size: smaller;
+  margin: 0%;
+  text-align: center;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Person-Sign-Up-wrapper, .navigation-wrapper .middle .nav-link-wrapper .Person-Sign-Up-wrapper, .navigation-wrapper .right-side .nav-link-wrapper .Person-Sign-Up-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Person-Sign-Up-wrapper .Person-Icon, .navigation-wrapper .middle .nav-link-wrapper .Person-Sign-Up-wrapper .Person-Icon, .navigation-wrapper .right-side .nav-link-wrapper .Person-Sign-Up-wrapper .Person-Icon {
+  margin: 0px;
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Person-Sign-Up-wrapper .Title-Wrapper, .navigation-wrapper .middle .nav-link-wrapper .Person-Sign-Up-wrapper .Title-Wrapper, .navigation-wrapper .right-side .nav-link-wrapper .Person-Sign-Up-wrapper .Title-Wrapper {
+  font-size: smaller;
+  margin: 0%;
+  text-align: center;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Sign-out-wrapper, .navigation-wrapper .middle .nav-link-wrapper .Sign-out-wrapper, .navigation-wrapper .right-side .nav-link-wrapper .Sign-out-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Power-Icon, .navigation-wrapper .middle .nav-link-wrapper .Power-Icon, .navigation-wrapper .right-side .nav-link-wrapper .Power-Icon {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  transition: 1s ease-in-out;
+  cursor: pointer;
+}
+.navigation-wrapper .left-side .nav-link-wrapper .Power-Icon:hover, .navigation-wrapper .middle .nav-link-wrapper .Power-Icon:hover, .navigation-wrapper .right-side .nav-link-wrapper .Power-Icon:hover {
+  filter: contrast(130%);
+}
+
+.Home-Page-Wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 84px);
+  background-color: #2b1215;
+  position: relative;
+  overflow-y: scroll;
+}
+.Home-Page-Wrapper .About-me-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: calc(100vw - 150px);
+  border: 1px solid #2b1215;
+  border-radius: 5px;
+  background-color: #56242A;
+}
+.Home-Page-Wrapper .Info-text-mission-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  width: 50%;
+  margin: 25px;
+  color: #C97E86;
+}
+.Home-Page-Wrapper .Logo-wrapper {
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+}
+.Home-Page-Wrapper .Logo-wrapper .Logo-img {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper {
+  display: grid;
+  grid-template-columns: 50% 17% 33%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: calc(100vw - 150px);
+  margin: 5px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skills-Wrapper {
+  text-align: center;
+  color: #C97E86;
+  border: 1px solid #2b1215;
+  border-radius: 5px;
+  background-color: #56242A;
+  margin: 5px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-bar-confidence-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Name {
+  border: 1px solid transparent;
+  background-color: #2b1215;
+  width: 100px;
+  height: 50px;
+  margin: 0%;
+  padding: 0%;
+  border-radius: 20px 0px 0px 20px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  background-color: #1d0c0e;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-HTML {
+  text-align: start;
+  background-color: #81363f;
+  width: 95%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-CSS {
+  text-align: start;
+  background-color: #81363f;
+  width: 95%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-Python {
+  text-align: start;
+  background-color: #81363f;
+  width: 75%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-Flask {
+  text-align: start;
+  background-color: #81363f;
+  width: 55%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-MongoDB {
+  text-align: start;
+  background-color: #81363f;
+  width: 65%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-UML {
+  text-align: start;
+  background-color: #81363f;
+  width: 90%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-UIUX {
+  text-align: start;
+  background-color: #81363f;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-Javascript {
+  text-align: start;
+  background-color: #81363f;
+  width: 85%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-GIT {
+  text-align: start;
+  background-color: #81363f;
+  width: 85%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-ReactJS {
+  text-align: start;
+  background-color: #81363f;
+  width: 75%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-SQL {
+  text-align: start;
+  background-color: #81363f;
+  width: 90%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Hobbies-Wrapper {
+  text-align: center;
+  color: #C97E86;
+  border: 1px solid #2b1215;
+  border-radius: 5px;
+  background-color: #56242A;
+  margin: 5px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Hobbies-list-wrapper {
+  height: 314px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Hobbies-list-wrapper .List-item {
+  text-align: start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Currently-Learning-Wrapper {
+  text-align: center;
+  color: #C97E86;
+  border: 1px solid #2b1215;
+  border-radius: 5px;
+  background-color: #56242A;
+  margin: 5px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Currently-Learning-Wrapper-List {
+  height: 314px;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Currently-learning-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Stage-Of-Learning {
+  position: relative;
+  top: 2px;
+}
+
+.DashBoard-Grid-Wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  width: calc(100vw - 150px);
+  text-decoration: none;
+}
+.DashBoard-Grid-Wrapper .Object-Wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin: 5px;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  color: #C97E86;
+  border: 1px solid #2b1215;
+  border-radius: 5px;
+  background-color: #56242A;
+  text-decoration: none;
+}
+.DashBoard-Grid-Wrapper .Dashboard-Object-Material {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  font-size: 2em;
+  border: 1px solid #56242A;
+  background-color: #2b1215;
+  border-radius: 200px;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  align-self: center;
+  text-decoration: none;
+}
+.DashBoard-Grid-Wrapper .Dashboard-Object-Material-Countby {
+  position: relative;
+  align-self: center;
+  top: -15px;
+}
+.DashBoard-Grid-Wrapper a {
+  text-decoration: none;
+  color: #C97E86;
+  transition: 1s ease-in-out;
+}
+.DashBoard-Grid-Wrapper a:hover {
+  color: #81363f;
+}
+.DashBoard-Grid-Wrapper .Social-link-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  font-size: 0.5em;
+}
+.DashBoard-Grid-Wrapper .Social-link-grid a {
+  text-decoration: none;
+  color: #C97E86;
+  text-align: -webkit-center;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.DashBoard-Grid-Wrapper .Social-link-grid .item-a, .DashBoard-Grid-Wrapper .Social-link-grid .item-b, .DashBoard-Grid-Wrapper .Social-link-grid .item-c {
+  border: none;
+  background-color: transparent;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+.DashBoard-Grid-Wrapper .Social-link-grid .item-c {
+  align-self: auto;
+}
+.DashBoard-Grid-Wrapper .Social-link-grid .Dashboard-Object-Material-img {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  margin: 0px;
+  padding: 0px;
+}
+.DashBoard-Grid-Wrapper .Social-link-grid .image-wrapper {
+  align-self: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .navigation-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1d0c0e;
+    color: #C97E86;
+    position: relative;
+    height: 84px;
+    overflow-y: hidden;
+  }
+  .navigation-wrapper .middle {
+    display: none;
+  }
+  .Home-Page-Wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 84px);
+    background-color: #2b1215;
+    position: relative;
+    overflow-y: scroll;
+  }
+  .Home-Page-Wrapper .About-me-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: calc(100vw - 84px);
+    border: 1px solid #2b1215;
+    border-radius: 5px;
+    background-color: #56242A;
+  }
+  .Home-Page-Wrapper .Info-text-mission-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    width: 50%;
+    margin: 25px;
+    color: #C97E86;
+  }
+  .Home-Page-Wrapper .Logo-wrapper {
+    margin: 0px;
+    padding: 0px;
+    align-self: center;
+  }
+  .Home-Page-Wrapper .Logo-wrapper .Logo-img {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: calc(100vw - 150px);
+    margin: 5px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skills-Wrapper {
+    text-align: center;
+    color: #C97E86;
+    border: 1px solid #2b1215;
+    border-radius: 5px;
+    background-color: #56242A;
+    margin: 5px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-bar-confidence-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Item-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Name {
+    border: 1px solid transparent;
+    background-color: #2b1215;
+    width: 100px;
+    height: 50px;
+    margin: 0%;
+    padding: 0%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: #1d0c0e;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-HTML {
+    text-align: start;
+    background-color: #81363f;
+    width: 95%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-CSS {
+    text-align: start;
+    background-color: #81363f;
+    width: 95%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-Python {
+    text-align: start;
+    background-color: #81363f;
+    width: 75%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-Flask {
+    text-align: start;
+    background-color: #81363f;
+    width: 55%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-MongoDB {
+    text-align: start;
+    background-color: #81363f;
+    width: 65%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-UML {
+    text-align: start;
+    background-color: #81363f;
+    width: 90%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-UIUX {
+    text-align: start;
+    background-color: #81363f;
+    width: 100%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-Javascript {
+    text-align: start;
+    background-color: #81363f;
+    width: 85%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-GIT {
+    text-align: start;
+    background-color: #81363f;
+    width: 85%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-ReactJS {
+    text-align: start;
+    background-color: #81363f;
+    width: 75%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Skill-Percent-SQL {
+    text-align: start;
+    background-color: #81363f;
+    width: 90%;
+    height: 100%;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Hobbies-Wrapper {
+    text-align: center;
+    color: #C97E86;
+    border: 1px solid #2b1215;
+    border-radius: 5px;
+    background-color: #56242A;
+    margin: 5px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Hobbies-list-wrapper {
+    height: 314px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Hobbies-list-wrapper .List-item {
+    text-align: start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Currently-Learning-Wrapper {
+    text-align: center;
+    color: #C97E86;
+    border: 1px solid #2b1215;
+    border-radius: 5px;
+    background-color: #56242A;
+    margin: 5px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Currently-Learning-Wrapper-List {
+    height: 314px;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Currently-learning-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .Home-Page-Wrapper .More-Facts-About-Me-Grid-Wrapper .Stage-Of-Learning {
+    position: relative;
+    top: 2px;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    width: calc(100vw - 150px);
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Object-Wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin: 5px;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    color: #C97E86;
+    border: 1px solid #2b1215;
+    border-radius: 5px;
+    background-color: #56242A;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Dashboard-Object-Material {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    font-size: 2em;
+    border: 1px solid #56242A;
+    background-color: #2b1215;
+    border-radius: 200px;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    align-self: center;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Dashboard-Object-Material-Countby {
+    position: relative;
+    align-self: center;
+    top: -15px;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    font-size: 0.5em;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid a {
+    text-decoration: none;
+    color: #C97E86;
+    text-align: -webkit-center;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid .item-a, .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid .item-b, .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid .item-c {
+    border: none;
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid .item-c {
+    align-self: auto;
+  }
+  .Home-Page-Wrapper .DashBoard-Grid-Wrapper .Social-link-grid .Dashboard-Object-Material-img {
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+/*# sourceMappingURL=app-750d8bfff9cd74d9f331.map*/
