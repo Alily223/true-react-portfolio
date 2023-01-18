@@ -8,12 +8,15 @@ class LogInSignUp extends Component {
     this.state = {
       name: "",
       password: "",
-      formLoad: "Log_In"
+      formLoad: "Log_In",
+      userinsertmessage: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitNewUser = this.handleSubmitNewUser.bind(this);
   }
+
 
   handleChange(event) {
     const { name, value } = event.target;
@@ -27,6 +30,27 @@ class LogInSignUp extends Component {
     const { name, password } = this.state;
     // Call the handleLogin prop function that was passed down from the App component
     this.props.handleLogin(name, password);
+  }
+
+  handleSubmitNewUser(event) {
+    event.preventDefault();
+
+    axios
+      .post("http://127.0.0.1:5000/users/signup", {
+        name: this.state.name,
+        password: this.state.password
+      })
+      .then((response) => {
+        if(response.status === 201){
+          this.setState({ userinsertmessage: response.data.userinsertmessage });
+        }
+      })
+      .catch((error) => {
+        if(response.status === 409){
+          this.setState({ userinsertmessage: response.data.userinsertmessage });
+        }
+        console.error(error);
+      });
   }
 
   LogInForm() {
@@ -71,7 +95,7 @@ class LogInSignUp extends Component {
       <React.Fragment key="Log-In">
         <div className="Log-In-Wrapper">
           <h1>Sign-Up Here</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmitNewUser}>
             <label htmlFor="name">Username:</label>
             <input
               type="text"
@@ -90,11 +114,11 @@ class LogInSignUp extends Component {
               onChange={this.handleChange}
             />
             <br />
-            <button type="submit">Log In</button>
+            <button type="submit">Sign Up</button>
           </form>
           
           <div className="Entrance-Message">
-            <h3>{this.props.message}</h3>
+            <h3>{this.state.userinsertmessage}</h3>
           </div>
           
           <button onClick={() => this.setState({ formLoad: "Log-In" })}>Log-In</button>
