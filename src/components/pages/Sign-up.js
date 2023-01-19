@@ -77,14 +77,14 @@ class LogInSignUp extends Component {
               onChange={this.handleChange}
             />
             <br />
-            <button type="submit">Log In</button>
+            <button className="submit-button" type="submit">Log In</button>
           </form>
           
           <div className="Entrance-Message">
             <h3>{this.props.message}</h3>
           </div>
           
-          <button onClick={() => this.setState({ formLoad: "Sign-up" })}>Sign-up</button>
+          <button className="Fragment-Button" onClick={() => this.setState({ formLoad: "Sign-up" })}> To Sign-up</button>
         </div>
       </React.Fragment>
     ]
@@ -114,14 +114,14 @@ class LogInSignUp extends Component {
               onChange={this.handleChange}
             />
             <br />
-            <button type="submit">Sign Up</button>
+            <button className="submit-button" type="submit">Sign Up</button>
           </form>
           
           <div className="Entrance-Message">
             <h3>{this.state.userinsertmessage}</h3>
           </div>
           
-          <button onClick={() => this.setState({ formLoad: "Log-In" })}>Log-In</button>
+          <button className="Fragment-Button" onClick={() => this.setState({ formLoad: "Log-In" })}> To Log-In</button>
         </div>
       </React.Fragment>
     ]

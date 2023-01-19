@@ -74,6 +74,9 @@ export default class App extends Component {
         }
       })
       .catch((error) => {
+        this.setState({
+          message: `theres been an error ${error}`
+        });
         console.error(error);
       });
   }
