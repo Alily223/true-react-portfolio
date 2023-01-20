@@ -6,3 +6,6 @@
 @import "./Home-Page-Styles/Dashboard.scss";
 @import "./Loginpagestyles/loginandsignup.scss";
 @import "./MediaFixes/Media.scss";
+@import '../../node_modules/react-quill/dist/quill.bubble.css';
+@import '../../node_modules/react-quill/dist/quill.core.css';
+@import '../../node_modules/react-quill/dist/quill.snow.css';

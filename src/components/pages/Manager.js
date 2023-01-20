@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import ReactQuill from 'react-quill';
+import draftToHtml from "draftjs-to-html";
+// import htmlTODraft from ""
 
 function Manager() {
     const [BlogForm,setBlogForm] = useState(false)
@@ -9,6 +12,8 @@ function Manager() {
     const [isLoading, setIsLoading] = useState(true);
     const [blogTitle, setBlogTitle] = useState('');
     const [blogDescription, setBlogDescription] = useState('');
+
+    const quillRef = React.createRef();
 
     const deleteBlog = async (blogId) => {
         try {
@@ -45,9 +50,10 @@ function Manager() {
     const handleAddBlogSubmit = async (event) => {
         event.preventDefault();
         try {
+            const quillContent = quillRef.current.getEditor().getContents();
             const response = await axios.post("http://127.0.0.1:5000/blog/postblog", {
                 name: blogTitle,
-                description: blogDescription
+                description: quillContent
             });
             console.log(response);
         } catch (error) {
@@ -68,13 +74,20 @@ function Manager() {
                     onChange={e => setBlogTitle(e.target.value)}
                 />
 
+                <div className="React-Quill-Wrapper" style = {{ height: '500px' , width:'1000px'}}>
                 <label>Description:</label>
-                <textarea 
+                <ReactQuill 
+                    ref={quillRef}
                     name="description" 
                     value={blogDescription}
                     onChange={e => setBlogDescription(e.target.value)}
-                >
-                </textarea>
+                    style = {{
+                        width: '50%',
+                        height: '300px'
+                    }}
+                />
+                
+                </div>
                 <button type="submit">Add to Blogs</button>
             </form> 
         </React.Fragment>
@@ -87,6 +100,8 @@ function Manager() {
             </div>
         </React.Fragment>
     )
+
+    
 
     return (
         <div>
