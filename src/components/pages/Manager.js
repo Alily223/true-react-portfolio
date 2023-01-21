@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import ReactQuill from 'react-quill';
-import draftToHtml from "draftjs-to-html";
-// import htmlTODraft from ""
+import RichTextEditor from 'react-rte';
+import TextParser from 'react-text-parser';
+
+
 
 function Manager() {
     const [BlogForm,setBlogForm] = useState(false)
@@ -12,8 +13,12 @@ function Manager() {
     const [isLoading, setIsLoading] = useState(true);
     const [blogTitle, setBlogTitle] = useState('');
     const [blogDescription, setBlogDescription] = useState('');
+    const [editorState, setEditorState] = useState(RichTextEditor.createEmptyValue());
 
-    const quillRef = React.createRef();
+    const handleQuillChange = (value) => {
+        setEditorState(value);
+        setBlogDescription(value.toString('html'))
+    }
 
     const deleteBlog = async (blogId) => {
         try {
@@ -44,25 +49,40 @@ function Manager() {
     }, []);
 
     const blogRecords = blogItems.map(blogItem => {
-        return <div key={blogItem.id}>{blogItem.title} -- {blogItem.description} <button onClick={() => deleteBlog(blogItem.id)}>Delete</button></div>
+        return <div key={blogItem.id}>
+        <div className="title">{blogItem.title}</div> 
+        <div className="description">
+          <TextParser allowed={['p','em','strong','u']}>{blogItem.description}</TextParser>
+        </div> 
+        <button onClick={() => deleteBlog(blogItem.id)}>Delete</button>
+        </div>
     })
+
 
     const handleAddBlogSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const quillContent = quillRef.current.getEditor().getContents();
-            const response = await axios.post("http://127.0.0.1:5000/blog/postblog", {
-                name: blogTitle,
-                description: quillContent
-            });
-            console.log(response);
-        } catch (error) {
-            console.log(error);
+        setIsLoading(true);
+        const payload = {
+            name: blogTitle,
+            description: editorState.toString('html')
         }
+        try {
+            await axios.post('http://127.0.0.1:5000/blog/postblog', payload, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            setIsLoading(false);
+            console.log("Blog added");
+        } catch (error) {
+            setIsLoading(false);
+            console.log(error);
+        };
     }
+    
 
     const AddBlogForm = () => (
-        <React.Fragment key="add-blog-form">
+            <React.Fragment key="add-blog-form">
             <h2>Add to Projects</h2>
             <form onSubmit={handleAddBlogSubmit}>
                 <label htmlFor="name">Title:</label>
@@ -74,17 +94,12 @@ function Manager() {
                     onChange={e => setBlogTitle(e.target.value)}
                 />
 
-                <div className="React-Quill-Wrapper" style = {{ height: '500px' , width:'1000px'}}>
+                <div className="React-Quill-Wrapper" style = {{ height: '500px' , width:'800px'}}>
                 <label>Description:</label>
-                <ReactQuill 
-                    ref={quillRef}
-                    name="description" 
-                    value={blogDescription}
-                    onChange={e => setBlogDescription(e.target.value)}
-                    style = {{
-                        width: '50%',
-                        height: '300px'
-                    }}
+                <RichTextEditor
+                    value={editorState}
+                    onChange={handleQuillChange}
+                    style={{ width: '30%', height: '300px' }}
                 />
                 
                 </div>
@@ -92,6 +107,7 @@ function Manager() {
             </form> 
         </React.Fragment>
     );
+
 
     const DeleteBlogSelection = () => (
         <React.Fragment key="Delete-blog-selection">
