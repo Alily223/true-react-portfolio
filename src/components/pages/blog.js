@@ -1,5 +1,6 @@
 import React, { Component, useEffect } from "react";
 import axios from "axios";
+import ReactHtmlParser from 'react-html-parser';
 
 export default class blog extends Component {
   constructor() {
@@ -33,8 +34,15 @@ export default class blog extends Component {
 
   render() {
     const blogRecords = this.state.blogItems.map(blogItem => {
-      return <div key={blogItem.id}>{blogItem.title} -- {blogItem.description}</div>
-    })
+      const parsedHtml = ReactHtmlParser(blogItem.description);
+      const content = parsedHtml.filter(item => React.isValidElement(item));
+      return (
+        <div key={blogItem.id}>
+            <div className="title">{blogItem.title}</div>
+            <div className="description">{content}</div>
+        </div>
+      );
+    });
     return (
       <div>
         {blogRecords}

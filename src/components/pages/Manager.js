@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import RichTextEditor from 'react-rte';
-import TextParser from 'react-text-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 
 
@@ -49,11 +49,12 @@ function Manager() {
     }, []);
 
     const blogRecords = blogItems.map(blogItem => {
+       
+        const parsedHtml = ReactHtmlParser(blogItem.description);
+        const content = parsedHtml.filter(item => React.isValidElement(item));
         return <div key={blogItem.id}>
         <div className="title">{blogItem.title}</div> 
-        <div className="description">
-          <TextParser allowed={['p','em','strong','u']}>{blogItem.description}</TextParser>
-        </div> 
+        <div className="description">{content}</div>
         <button onClick={() => deleteBlog(blogItem.id)}>Delete</button>
         </div>
     })
@@ -85,7 +86,7 @@ function Manager() {
             <React.Fragment key="add-blog-form">
             <h2>Add to Projects</h2>
             <form onSubmit={handleAddBlogSubmit}>
-                <label htmlFor="name">Title:</label>
+                <label htmlFor="name">Blog Title:</label>
                 <input
                     type="text"
                     id="name"
