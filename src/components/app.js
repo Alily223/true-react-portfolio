@@ -51,7 +51,6 @@ export default class App extends Component {
       .then((response) => {
         if (response.status === 200) {
           if (response.data.admin_logged_in === true) {
-            localStorage.setItem('token', response.data.token);
             this.setState({
               userLogInStatus: "LOGGED_IN",
               adminLogInStatus: "LOGGED_IN",
@@ -59,7 +58,6 @@ export default class App extends Component {
               username: username
             });
           } else {
-            localStorage.setItem('token', response.data.token);
             this.setState({
               userLogInStatus: "LOGGED_IN",
               adminLogInStatus: "NOT_LOGGED_IN",
