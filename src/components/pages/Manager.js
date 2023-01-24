@@ -86,7 +86,7 @@ function Manager() {
             <React.Fragment key="add-blog-form">
             <h2>Add to Projects</h2>
             <form onSubmit={handleAddBlogSubmit}>
-                <label htmlFor="name">Blog Title:</label>
+                <label htmlFor="name">Title:</label>
                 <input
                     type="text"
                     id="name"

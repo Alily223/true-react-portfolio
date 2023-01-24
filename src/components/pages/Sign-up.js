@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import bcrypt from "bcryptjs";
 
 class LogInSignUp extends Component {
   constructor(props) {
@@ -35,10 +36,14 @@ class LogInSignUp extends Component {
   handleSubmitNewUser(event) {
     event.preventDefault();
 
+    // Hash the user's password using bcrypt
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(this.state.password, salt);
+
     axios
       .post("http://127.0.0.1:5000/users/signup", {
         name: this.state.name,
-        password: this.state.password
+        password: hashedPassword
       })
       .then((response) => {
         if(response.status === 201){

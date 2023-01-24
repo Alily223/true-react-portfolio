@@ -19,6 +19,15 @@ import Manager from "./pages/Manager";
 import UserManager from "./pages/User-manager";
 
 export default class App extends Component {
+
+  configheader = {
+    headers:{
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods":"POST",
+
+    },
+  }
+
   constructor(props) {
     super(props);
 
@@ -43,44 +52,43 @@ export default class App extends Component {
   }
 
   handleLogin(username, password) {
+    // Send a post request to the server with the username and password
     axios
-      .post("http://127.0.0.1:5000/users/login", {
-        name: username,
-        password: password,
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          if (response.data.admin_logged_in === true) {
-            localStorage.setItem('token', response.data.token);
+        .post("http://127.0.0.1:5000/users/login", {
+            name: username,
+            password: password
+        }, configheader)
+        .then(response => {
+            if (response.status === 200) {
+                // If the login is successful, create a token using the user's information
+                const token = jwt.sign({
+                    name: username,
+                    role: response.data.admin_logged_in ? 'admin' : 'user'
+                }, secret, { expiresIn: '1h' });
+                
+                // Set the token in local storage and update the user's login status
+                localStorage.setItem('token', token);
+                this.setState({
+                    userLogInStatus: "LOGGED_IN",
+                    adminLogInStatus: response.data.admin_logged_in ? "LOGGED_IN" : "NOT_LOGGED_IN",
+                    message: response.data.admin_logged_in ? "Successfully Logged In As An Admin" : "Successfully Logged In As " + username,
+                    username: username
+                });
+            } else if (response.status === 401) {
+                // If the login is unsuccessful, update the user's login status and display an error message
+                this.setState({
+                    userLogInStatus: "NOT_LOGGED_IN",
+                    adminLogInStatus: "NOT_LOGGED_IN",
+                    message: "Error: Invalid username or password, please try again"
+                });
+            }
+        })
+        .catch(error => {
             this.setState({
-              userLogInStatus: "LOGGED_IN",
-              adminLogInStatus: "LOGGED_IN",
-              message: "Succesfully Logged In As An Admin",
-              username: username
+                message: `Error: ${error}`
             });
-          } else {
-            localStorage.setItem('token', response.data.token);
-            this.setState({
-              userLogInStatus: "LOGGED_IN",
-              adminLogInStatus: "NOT_LOGGED_IN",
-              message: "Succesfully Logged In As " + username,
-              username: username
-            });
-          }
-        } else if (response.status === 401) {
-          this.setState({
-            userLogInStatus: "NOT_LOGGED_IN",
-            adminLogInStatus: "NOT_LOGGED_IN",
-            message: "Error password incorrect, try again"
-          });
-        }
-      })
-      .catch((error) => {
-        this.setState({
-          message: `theres been an error ${error}`
+            console.error(error);
         });
-        console.error(error);
-      });
   }
 
   userAuthorizedPages(){
@@ -126,6 +134,31 @@ export default class App extends Component {
 
       </React.Fragment>
     ]
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    console.log(token)
+    if(token) {
+      axios.post('http://127.0.0.1:5000/users/login', { token })
+          .then(response => {
+              if(response.data.admin_logged_in || response.data.userLogInStatus == 'LOGGED_IN') {
+                  let secret = response.data.admin_logged_in ? adminsecret : secret;
+                  try {
+                      const decoded = jwt.decode(token, secret);
+                      if (decoded) {
+                          this.setState({ 
+                              userLogInStatus: response.data.userLogInStatus,
+                              adminLogInStatus: response.data.admin_logged_in ? "LOGGED_IN" : "NOT_LOGGED_IN",
+                              username: decoded.username
+                          });
+                      }
+                  } catch(err) {
+                      console.log(err);
+                  }
+              }
+          });
+  }
   }
 
   render() {
