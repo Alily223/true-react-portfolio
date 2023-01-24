@@ -10,7 +10,6 @@ const NavigationComponent = (props) => {
   const signOut = () => {
     props.setUserLogInStatus("NOT_LOGGED_IN");
     props.setAdminLogInStatus("NOT_LOGGED_IN");
-    localStorage.removeItem('token');
   };
   return (
     <div className="navigation-wrapper">

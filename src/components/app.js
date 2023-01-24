@@ -50,6 +50,7 @@ export default class App extends Component {
       })
       .then((response) => {
         if (response.status === 200) {
+          console.log(response.data.admin_logged_in)
           if (response.data.admin_logged_in === true) {
             this.setState({
               userLogInStatus: "LOGGED_IN",
